@@ -15,8 +15,9 @@ export class DonaComponent implements OnInit {
   public doughnutChartData: ChartData<'doughnut'> = {
     labels: this.doughnutChartLabels,
     datasets: [
-      { data: [ 350, 450, 100 ] },
-
+      { data: [ 350, 450, 100 ],
+        backgroundColor:['#2534B8','#334984','#97E5EA'] 
+      }
     ]
   };
   public doughnutChartType: ChartType = 'doughnut';
