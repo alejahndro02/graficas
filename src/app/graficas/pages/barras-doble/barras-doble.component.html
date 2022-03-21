@@ -4,7 +4,10 @@
     
     <div class="col-md-6">
         <h3 class="text-center">Grafica Uno</h3>
-        <app-grafica-barra></app-grafica-barra>
+        <app-grafica-barra [horizontal]="true"
+            [barChartData]="productosData"
+            [barChartOptions]="productosOpciones">
+        </app-grafica-barra>
     </div>
     <div class="col-md-6">
         <h3 class="text-center">Grafica Dos</h3>
