@@ -1,5 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
+import { Component, 
+         OnInit, 
+         ViewChild         } from '@angular/core';
+import { ChartConfiguration, 
+         ChartData, 
+         ChartEvent, 
+         ChartType          } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -14,10 +19,6 @@ export class BarrasComponent implements OnInit {
     responsive: true,
   };
   public barChartType: ChartType = 'bar';
-  // public barChartPlugins = [
-  //   DataLabelsPlugin
-  // ];
-
 
   public barChartData: ChartData<'bar'> = {
     labels: [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
