@@ -11,13 +11,14 @@ import { GraficasService } from '../../services/graficas.service';
   ]
 })
 export class DonaHttpComponent implements OnInit {
+  divGrafica: boolean = false
   // Doughnut
-  public doughnutChartLabels: string[] = [ 'Pelotas', 'Sonajas', 'Disfraces' ];
+  public doughnutChartLabels: string[] = [  ];
   public doughnutChartData: ChartData<'doughnut'> = {
     labels: this.doughnutChartLabels,
     datasets: [
-      { data: [ 350, 450, 100 ],
-        backgroundColor:['#2534B8','#334984','#97E5EA'] 
+      { data: [ ],
+        backgroundColor:[] 
       }
     ]
   };
@@ -25,7 +26,20 @@ export class DonaHttpComponent implements OnInit {
   constructor(private graficaService: GraficasService) { }
 
   ngOnInit(): void {
-    this.graficaService.getDataUserSocial().subscribe(data =>console.log(data))
+
+    this.graficaService.getDataUserSocial().subscribe( data =>{
+      // Se crea el objeto data que sera mostrado en elhtml
+    this.doughnutChartData={
+      labels:Object.keys(data),
+      datasets:[
+        {
+          data:Object.values(data),
+          backgroundColor:['#2534B8','#334984','#97E5EA','#ED845F','#82B86C'] 
+        }
+      ]
+    }
+    
+    })
   }
 
 }
