@@ -27,7 +27,7 @@ export class DonaHttpComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.graficaService.getDataUserSocial().subscribe( data =>{
+    /*this.graficaService.getDataUserSocial().subscribe( data =>{
       // Se crea el objeto data que sera mostrado en elhtml
     this.doughnutChartData={
       labels:Object.keys(data),
@@ -37,8 +37,19 @@ export class DonaHttpComponent implements OnInit {
           backgroundColor:['#2534B8','#334984','#97E5EA','#ED845F','#82B86C'] 
         }
       ]
-    }
-    
+    }*/
+    this.graficaService.getDataResultUserSocial()
+    .subscribe( ({labels, values}) => {
+      
+      this.doughnutChartData
+          .labels = labels  
+
+      this.doughnutChartData
+          .datasets[0].data = values
+
+      this.doughnutChartData.datasets[0]
+          .backgroundColor = ['#2534B8','#334984','#97E5EA','#ED845F','#82B86C'] 
+
     })
   }
 
